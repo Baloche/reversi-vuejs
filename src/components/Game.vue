@@ -8,8 +8,8 @@
 
 <script>
 import Board from './Board'
-import { WHITE } from '../constants'
-import { getOpponent, getColor } from '../tools'
+import { WHITE } from '../constants/coin'
+import { getOpponent, getColor } from '../constants/tools'
 
 export default {
   name: 'game',

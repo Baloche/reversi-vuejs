@@ -15,7 +15,7 @@
 <script>
 
   import Tile from './Tile'
-  import { BLACK, WHITE, TRANSPARENT } from '../constants'
+  import { BLACK, WHITE, EMPTY } from '../constants/coin'
 
   export default {
 

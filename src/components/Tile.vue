@@ -6,7 +6,7 @@
 
 <script>
 
-  import { COLORS } from '../constants'
+  import { COLORS } from '../constants/coin'
 
   export default {
 
