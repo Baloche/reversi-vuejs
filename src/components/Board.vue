@@ -99,13 +99,13 @@
       },
 
       isOpponent: function (tile) {
-        let color = this.tiles[tile.x][tile.y]
-        return this.current === BLACK ? color === WHITE : color === BLACK
+        let state = this.tiles[tile.x][tile.y]
+        return this.current === BLACK ? state === WHITE : state === BLACK
       },
 
       isEmpty: function (tile) {
-        let color = this.tiles[tile.x][tile.y]
-        return color === TRANSPARENT
+        let state = this.tiles[tile.x][tile.y]
+        return state === EMPTY
       },
 
       getState: function (rowIndex, tileIndex) {
