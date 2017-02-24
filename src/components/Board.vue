@@ -5,7 +5,7 @@
         :state="getState(x, y)"
         :x="x"
         :y="y"
-        @play="play($event)"
+        @click.native="play(x,y)"
         :style="{ width: 100/size + '%', height: 100/size + '%'  }"
       ></tile>
     </template>
@@ -42,8 +42,12 @@
     },
 
     methods: {
-      play: function (tile) {
-        let { x, y } = tile
+      play: function (x, y) {
+        let tile = { x, y }
+
+        if (!this.isEmpty(tile)) {
+          return
+        }
 
         let switchableTiles = [
           ...this.searchSwitchableTiles(-1, 0, x, y),

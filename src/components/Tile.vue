@@ -1,5 +1,5 @@
 <template>
-  <div class="tile" @click="play()">
+  <div class="tile">
     <div class="coin" :class="color"></div>
   </div>
 </template>
@@ -37,12 +37,6 @@
     computed: {
       color: function () {
         return COLORS[this.state]
-      }
-    },
-
-    methods: {
-      play: function () {
-        this.$emit('play', { x: this.x, y: this.y })
       }
     }
   }
