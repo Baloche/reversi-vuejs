@@ -1,6 +1,6 @@
 <template>
   <div class="tile">
-    <coin v-if="state || hint" :class="hint ? 'hint ' + currentColor : color"/>
+    <coin v-if="coinColor || hint" :class="hint ? 'hint ' + currentColor : coinColor"/>
   </div>
 </template>
 
@@ -13,16 +13,6 @@
   export default {
 
     props: {
-
-      x: {
-        type: Number,
-        required: true
-      },
-
-      y: {
-        type: Number,
-        required: true
-      },
 
       hint: Boolean,
 
@@ -41,7 +31,7 @@
         'currentColor'
       ]),
 
-      color: function () {
+      coinColor: function () {
         return COLORS[this.state]
       }
     },

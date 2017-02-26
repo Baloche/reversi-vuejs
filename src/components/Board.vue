@@ -4,8 +4,6 @@
       <tile v-for="(tile, y) in rows"
         :state="getTileState({x, y})"
         :hint="isTilePlayable({x, y})"
-        :x="x"
-        :y="y"
         @click.native="play({x,y})"
         :style="{ width: 100/size + '%', height: 100/size + '%'  }"
       />
