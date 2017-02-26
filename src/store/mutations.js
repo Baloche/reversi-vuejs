@@ -1,7 +1,15 @@
 import { set } from 'vue'
 import * as ActionTypes from '../constants/ActionTypes'
-import { BLACK, WHITE, EMPTY } from '../constants/CoinStates'
+import * as CoinStates from '../constants/CoinStates'
+import * as GameStates from '../constants/GameStates'
 import store from './index'
+
+export const initialState = {
+  gameState: GameStates.UNSTARTED,
+  currentTurn: CoinStates.WHITE,
+  size: 8,
+  board: []
+}
 
 export default {
 
@@ -9,12 +17,17 @@ export default {
     state.currentTurn = store.getters.nextTurn
   },
 
-  [ActionTypes.INIT_BOARD] (state, size) {
-    state.board = Array(...Array(size)).map(() => Array(size).fill(EMPTY))
-    setTile(state, {x: size / 2 - 1, y: size / 2 - 1}, WHITE)
-    setTile(state, {x: size / 2, y: size / 2 - 1}, BLACK)
-    setTile(state, {x: size / 2 - 1, y: size / 2}, BLACK)
-    setTile(state, {x: size / 2, y: size / 2}, WHITE)
+  [ActionTypes.START_GAME] (state) {
+    state.board = Array(...Array(state.size)).map(() => Array(state.size).fill(CoinStates.EMPTY))
+    setTile(state, {x: state.size / 2 - 1, y: state.size / 2 - 1}, CoinStates.WHITE)
+    setTile(state, {x: state.size / 2, y: state.size / 2 - 1}, CoinStates.BLACK)
+    setTile(state, {x: state.size / 2 - 1, y: state.size / 2}, CoinStates.BLACK)
+    setTile(state, {x: state.size / 2, y: state.size / 2}, CoinStates.WHITE)
+    state.gameState = GameStates.STARTED
+  },
+
+  [ActionTypes.END_GAME] (state) {
+    state.gameState = GameStates.FINISHED
   },
 
   [ActionTypes.PLAY_COIN] (state, position) {

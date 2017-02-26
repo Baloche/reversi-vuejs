@@ -29,12 +29,12 @@
     },
 
     created: function () {
-      this.initBoard(8)
+      this.startGame()
     },
 
     methods: {
       ...mapActions([
-        'initBoard',
+        'startGame',
         'play'
       ]),
 

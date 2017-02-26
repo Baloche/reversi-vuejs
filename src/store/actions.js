@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes'
 
 const makeAction = type => ({commit}, ...args) => commit(type, ...args)
 
-export const initBoard = makeAction(types.INIT_BOARD)
+export const startGame = makeAction(types.START_GAME)
 export const endTurn = makeAction(types.END_TURN)
 
 export const play = ({commit, getters}, position) => {
