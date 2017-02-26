@@ -3,6 +3,14 @@ import * as types from '../constants/ActionTypes'
 const makeAction = type => ({commit}, ...args) => commit(type, ...args)
 
 export const initBoard = makeAction(types.INIT_BOARD)
-export const playCoin = makeAction(types.PLAY_COIN)
-export const switchCoins = makeAction(types.SWITCH_COINS)
 export const endTurn = makeAction(types.END_TURN)
+
+export const play = ({commit, getters}, position) => {
+  let { x, y } = position
+  let switchables = getters.availableMoves[x][y]
+  if (getters.isTilePlayable(position)) {
+    commit(types.PLAY_COIN, position)
+    commit(types.SWITCH_COINS, switchables)
+    commit(types.END_TURN)
+  }
+}

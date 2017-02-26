@@ -37,22 +37,11 @@
     methods: {
       ...mapActions([
         'initBoard',
-        'playCoin',
-        'switchCoins',
-        'endTurn'
+        'play'
       ]),
 
-      play: function (tile) {
-        if (this.isTilePlayable(tile)) {
-          let switchables = this.availableMoves[tile.x][tile.y]
-          this.playCoin(tile)
-          this.switchCoins(switchables)
-          this.endTurn()
-        }
-      },
-
       print: function () {
-        this.tiles.forEach((row, rowIndex) => {
+        this.board.forEach((row, rowIndex) => {
           console.log(rowIndex, row.join(' | '))
         })
       }
