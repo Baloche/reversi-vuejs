@@ -1,36 +1,21 @@
 <template>
   <div class="game">
-    <input type="number" v-model="size">
     <h1 :style="{color: currentColor}">Current player is {{ currentColor }}</h1>
-    <board @hasPlayed="hasPlayed()" :size="size" :current="current"></board>
+    <board></board>
   </div>
 </template>
 
 <script>
 import Board from './Board'
-import { WHITE } from '../constants/coin'
-import { getOpponent, getColor } from '../constants/tools'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'game',
 
-  data: function () {
-    return {
-      size: 8,
-      current: WHITE
-    }
-  },
-
   computed: {
-    currentColor: function () {
-      return getColor(this.current)
-    }
-  },
-
-  methods: {
-    hasPlayed: function () {
-      this.current = getOpponent(this.current)
-    }
+    ...mapGetters([
+      'currentColor'
+    ])
   },
 
   components: {

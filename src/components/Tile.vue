@@ -1,12 +1,12 @@
 <template>
   <div class="tile">
-    <div class="coin" :class="color"></div>
+    <div class="coin" :class="color + (hint ? ' hint' : '')"></div>
   </div>
 </template>
 
 <script>
 
-  import { COLORS } from '../constants/coin'
+  import { COLORS } from '../constants/CoinStates'
 
   export default {
 
@@ -23,6 +23,8 @@
         type: Number,
         required: true
       },
+
+      hint: Boolean,
 
       state: {
         type: Number,
@@ -53,14 +55,14 @@
     align-items: center;
     position: relative;
 
-    &:hover::before {
+    &:hover::before, .coin.hint {
         content: '';
         position: absolute;
         width: 80%;
-        height: 80%;
+        height: 70%;
         border-radius: 50%;
         transition: all 100ms ease;
-        opacity: 0.15;
+        opacity: 0.10;
         background-color: white;
       }
 
@@ -87,7 +89,7 @@
             width: 75%;
             height: 75%;
             border-radius: 50%;
-            opacity: 0.15;
+            opacity: 0.10;
           }
         }
 
