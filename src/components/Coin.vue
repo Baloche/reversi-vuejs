@@ -2,15 +2,6 @@
   <div class="coin"></div>
 </template>
 
-<script>
-
-  export default {
-
-    name: 'coin'
-  }
-
-</script>
-
 <style lang="scss" scoped>
 
   .coin {

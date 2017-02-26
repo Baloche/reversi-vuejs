@@ -1,7 +1,7 @@
 <template>
   <div class="game">
     <h1 :style="{color: currentColor}">Current player is {{ currentColor }}</h1>
-    <board></board>
+    <board/>
   </div>
 </template>
 
@@ -10,7 +10,6 @@ import Board from './Board'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'game',
 
   computed: {
     ...mapGetters([

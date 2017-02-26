@@ -8,7 +8,7 @@
         :y="y"
         @click.native="play({x,y})"
         :style="{ width: 100/size + '%', height: 100/size + '%'  }"
-      ></tile>
+      />
     </template>
   </div>
 </template>
@@ -19,8 +19,6 @@
   import { mapGetters, mapActions } from 'vuex'
 
   export default {
-
-    name: 'board',
 
     computed: {
       ...mapGetters([

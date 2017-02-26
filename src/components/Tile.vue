@@ -1,6 +1,6 @@
 <template>
   <div class="tile">
-    <coin v-if="state || hint" :class="hint ? 'hint ' + currentColor : color"></coin>
+    <coin v-if="state || hint" :class="hint ? 'hint ' + currentColor : color"/>
   </div>
 </template>
 
@@ -11,8 +11,6 @@
   import { mapGetters } from 'vuex'
 
   export default {
-
-    name: 'tile',
 
     props: {
 

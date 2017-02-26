@@ -23,7 +23,6 @@ export default {
   },
 
   [ActionTypes.SWITCH_COINS] (state, switchables) {
-    console.log('Mutations', switchables)
     switchables.forEach(tile => setTile(state, tile, state.currentTurn))
   }
 }
