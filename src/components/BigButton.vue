@@ -26,7 +26,8 @@ export default {
     background-color: white;
     font-size: 20px;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px 40px;
+    margin: 5px;
     border-radius: 200px;
     outline: none;
     border: none;

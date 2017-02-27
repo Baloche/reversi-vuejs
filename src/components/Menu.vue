@@ -1,12 +1,10 @@
 <template>
-  <div class='menu'>
-    <btn color="orange" @click.native="startGame">Start</btn>
-  </div>
+    <big-button color="orange" @click.native="startGame">Start</big-button>
 </template>
 
 <script>
 
-  import Button from './Button'
+  import BigButton from './BigButton'
   import { mapActions } from 'vuex'
 
   export default {
@@ -18,20 +16,12 @@
     },
 
     components: {
-      btn: Button
+      BigButton
     }
 
   }
 </script>
 
 <style scoped>
-
-    .menu {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-    }
 
 </style>

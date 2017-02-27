@@ -1,6 +1,6 @@
 <template>
   <div class="tile">
-    <coin v-if="coinColor || hint" :class="hint ? 'hint ' + currentColor : coinColor"/>
+    <coin :class="hint ? 'hint ' + currentColor : coinColor"/>
   </div>
 </template>
 
