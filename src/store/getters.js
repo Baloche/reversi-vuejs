@@ -1,7 +1,9 @@
 import { WHITE, BLACK, EMPTY, COLORS } from '../constants/CoinStates'
+import { ROUTES } from '../constants/GameStates'
 
 export const currentTurn = state => state.currentTurn
 export const currentColor = state => COLORS[state.currentTurn]
+export const currentRoute = state => ROUTES[state.gameState]
 export const board = state => state.board
 export const size = state => state.board.length
 export const nextTurn = state => state.currentTurn === WHITE ? BLACK : WHITE

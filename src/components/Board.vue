@@ -28,13 +28,8 @@
       ])
     },
 
-    created: function () {
-      this.startGame()
-    },
-
     methods: {
       ...mapActions([
-        'startGame',
         'play'
       ]),
 

@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <router-view class="coucou"></router-view>
+    <h1>Reversi</h1>
+    <router-view :name="currentRoute"></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import { mapGetters } from 'vuex'
+
+  export default {
+    name: 'app',
+
+    computed: {
+      ...mapGetters(['currentRoute'])
+    }
+  }
 </script>
 
 <style lang="scss">
