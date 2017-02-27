@@ -30,10 +30,6 @@ export default {
     state.gameState = GameStates.FINISHED
   },
 
-  [ActionTypes.PLAY_COIN] (state, position) {
-    setTile(state, position, state.currentTurn)
-  },
-
   [ActionTypes.SWITCH_COINS] (state, switchables) {
     switchables.forEach(tile => setTile(state, tile, state.currentTurn))
   }

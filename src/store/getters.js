@@ -16,6 +16,15 @@ export const availableMoves = (state, getters) => {
   return moves
 }
 
+export const playableTiles = (state, getters) => {
+  return getters.availableMoves.reduce((allTiles, rowTiles, rowIndex) => [
+    ...allTiles,
+    ...(rowTiles.map((tileMoves, tileIndex) => {
+      return tileMoves.length > 0 ? {x: rowIndex, y: tileIndex} : undefined
+    }).filter(tile => tile !== undefined))
+  ], [])
+}
+
 export const isTilePlayable = (state, getters) => tile => {
   return getters.availableMoves[tile.x][tile.y].length > 0
 }
