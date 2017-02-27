@@ -6,7 +6,7 @@ import store from './index'
 
 export const initialState = {
   gameState: GameStates.UNSTARTED,
-  currentTurn: CoinStates.WHITE,
+  currentTurn: CoinStates.EMPTY,
   size: 4,
   board: []
 }
@@ -18,11 +18,20 @@ export default {
   },
 
   [ActionTypes.START_GAME] (state) {
+
+    // Initialize empty board
     state.board = Array(...Array(state.size)).map(() => Array(state.size).fill(CoinStates.EMPTY))
+
+    // Initialize centre checkerboard
     setTile(state, {x: state.size / 2 - 1, y: state.size / 2 - 1}, CoinStates.WHITE)
     setTile(state, {x: state.size / 2, y: state.size / 2 - 1}, CoinStates.BLACK)
     setTile(state, {x: state.size / 2 - 1, y: state.size / 2}, CoinStates.BLACK)
     setTile(state, {x: state.size / 2, y: state.size / 2}, CoinStates.WHITE)
+
+    // White always starts
+    state.currentTurn = CoinStates.WHITE
+
+    // And start the game
     state.gameState = GameStates.STARTED
   },
 
@@ -30,8 +39,8 @@ export default {
     state.gameState = GameStates.FINISHED
   },
 
-  [ActionTypes.SWITCH_COINS] (state, switchables) {
-    switchables.forEach(tile => setTile(state, tile, state.currentTurn))
+  [ActionTypes.SWITCH_COINS] (state, tiles) {
+    tiles.forEach(tile => setTile(state, tile, state.currentTurn))
   }
 }
 
