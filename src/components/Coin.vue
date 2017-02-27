@@ -1,5 +1,7 @@
 <template>
-  <div class="coin"></div>
+  <div class="coin">
+    <slot/>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -10,7 +12,7 @@
       border-radius: 50%;
       transition: all 1000ms ease;
       position: relative;
-      box-shadow: 0px 2px 4px rgba(0,0,0,0.75);
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.75);
       margin-bottom: 2px;
       border-bottom-width: 2px;
       border-bottom-style: solid;
@@ -18,11 +20,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      font-weight: bold;
 
       &.black, &.white {
         opacity: 1;
         &::after {
           content: '';
+          position: absolute;
           width: 75%;
           height: 75%;
           border-radius: 50%;
@@ -31,6 +36,7 @@
       }
 
       &.black {
+        color: white;
         background-color: black; 
         border-bottom-color: white;
 
@@ -40,6 +46,7 @@
       }
 
       &.white {
+        color: black;
         background-color: white; 
         border-bottom-color: black;
         

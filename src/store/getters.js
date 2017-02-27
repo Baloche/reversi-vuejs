@@ -7,6 +7,10 @@ export const board = state => state.board
 export const size = state => state.board.length
 export const nextTurn = state => getOpponent(state.currentTurn)
 export const getTileState = state => tile => state.board[tile.x][tile.y]
+export const flattenBoard = state => state.board.reduce((allTiles, rowTiles) => [...allTiles, ...rowTiles])
+
+export const whiteCount = (state, getters) => getters.flattenBoard.filter(tile => tile === WHITE).length
+export const blackCount = (state, getters) => getters.flattenBoard.filter(tile => tile === BLACK).length
 
 export const availableMoves = (state, getters) =>
   state.board.map((rows, x) => rows.map((tile, y) => getSwitchableTilesFromPosition(getters, getters.currentTurn, {x, y})))
