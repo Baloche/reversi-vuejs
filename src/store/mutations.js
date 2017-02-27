@@ -7,7 +7,7 @@ import store from './index'
 export const initialState = {
   gameState: GameStates.UNSTARTED,
   currentTurn: CoinStates.WHITE,
-  size: 8,
+  size: 4,
   board: []
 }
 
