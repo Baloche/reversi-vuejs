@@ -23,7 +23,6 @@
         'board',
         'size',
         'getTileState',
-        'availableMoves',
         'isTilePlayable'
       ])
     },
