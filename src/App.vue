@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Reversi</h1>
-    <router-view :name="currentRoute"></router-view>
+    <router-view :name="gameState"></router-view>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
     name: 'app',
 
     computed: {
-      ...mapGetters(['currentRoute'])
+      ...mapGetters(['gameState'])
     }
   }
 </script>

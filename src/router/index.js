@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Game from 'components/Game'
 import GameOver from 'components/GameOver'
 import Menu from 'components/Menu'
-import { UNSTARTED, STARTED, FINISHED, ROUTES } from '../constants/GameStates'
+import { UNSTARTED, STARTED, FINISHED } from '../constants/GameStates'
 
 Vue.use(Router)
 
@@ -12,9 +12,9 @@ export default new Router({
     {
       path: '/',
       components: {
-        [ROUTES[UNSTARTED]]: Menu,
-        [ROUTES[STARTED]]: Game,
-        [ROUTES[FINISHED]]: GameOver
+        [UNSTARTED]: Menu,
+        [STARTED]: Game,
+        [FINISHED]: GameOver
       }
     }
   ]
